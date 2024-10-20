@@ -1,0 +1,28 @@
+<div class="">
+  <p class="text-[white] text-2xl h-[50px] text-center place-content-center font-bold">WorkFit</p>
+  <div class="px-2">
+    <!-- Side Nav Bar -->
+    <ul class="sidenav-nav ">
+        @for (navItem of sideBarData; track $index) {
+            @if ($index < sideBarData.length-2) {
+            <li class="sidenav-nav-item text-[white] p-2 text-lg cursor-pointer hover:bg-[#232323]">
+                
+            <i class="{{ navItem.icon }} text-[white] mr-3" aria-hidden="true"></i>
+                {{navItem.label}}</li>
+            }
+            @if ($index === sideBarData.length-2) {
+                <li class="sidenav-nav-item text-[white] p-2 w-full text-lg absolute bottom-12 left-0 cursor-pointer hover:bg-[#232323] active">
+                
+                    <i class="{{ navItem.icon }} text-[white] mr-3" aria-hidden="true"></i>
+                        {{navItem.label}}</li>
+            } 
+            @if ($index === sideBarData.length-1) {
+                <li class="sidenav-nav-item text-[white] p-2 w-full text-lg absolute bottom-0 left-0 cursor-pointer hover:bg-[#232323]">
+                
+                    <i class="{{ navItem.icon }} text-[white] mr-3" aria-hidden="true"></i>
+                        {{navItem.label}}</li>
+            } 
+        }
+      </ul>
+  </div>
+</div>

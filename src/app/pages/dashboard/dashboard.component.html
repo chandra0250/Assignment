@@ -1,0 +1,40 @@
+<div class="grid grid-cols-6">
+    <div class="bg-[black] h-[100vh] relative">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-span-5">
+        <div class="col-span-5 border-b-[1px] h-[50px] border-[#dedede] place-content-center bg-[#fff]">
+            <app-header></app-header>
+        </div>
+
+        <div class="grid grid-cols-4 gap-3 p-4 mt-[6%] max-h-[80vh] overflow-y-scroll">
+            @for (user of users; track $index) {
+            <!-- Card Start -->
+            <div class="border border-[2px] border-[#dfdfdf] rounded-xl text-center bg-[#fff]">
+                <img class="m-auto rounded-full w-[35%] mt-3" [src]="user.img" />
+                <p class="text-xl font-bold">{{user.name}}</p>
+                <p class="text-base text-[#aaa]">Project Manager</p>
+                <div class="grid grid-cols-3 mt-6">
+                    <div class="border-r-[1px] border-[#dfdfdf]">
+                        <p class="text-[#aaa]">Projects</p>
+                        <p>34</p>
+                    </div>
+                    <div class="border-r-[1px] border-[#dfdfdf]">
+                        <p class="text-[#aaa]">Tasks</p>
+                        <p>121</p>
+                    </div>
+                    <div>
+                        <p class="text-[#aaa]">Insights</p>
+                        <p>31</p>
+                    </div>
+                </div>
+                <div class="flex justify-center my-6">
+                    <button class="border border-[#dfdfdf] rounded-full px-6 py-2">View Profile</button>
+                </div>
+            </div>
+            <!-- Card End -->
+            }
+
+        </div>
+    </div>
+</div>

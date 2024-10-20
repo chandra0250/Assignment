@@ -1,0 +1,81 @@
+<div class="grid grid-cols-4 gap-3">
+
+    <!-- Left Section Start -->
+    <div class="relative border border-[2px] border-[#000] p-2 h-[80vh] bg-[#fff]">
+        <form [formGroup]="cityForm">
+            <div class="relative">
+                <input type="text" formControlName="city"
+                    class="border-b-[1px] px-2 w-[90%] focus:outline-none focus:ring-0 focus:ring-blue-500"
+                    placeholder="Type city name" />
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="cursor-pointer absolute right-0 top-0 size-6"
+                    (click)="getDataByCity()">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+            </div>
+        </form>
+        <hr class="mt-3 border-t-2">
+        <div class="relative mt-3">
+            <p class="border-b-2 text-sm text-[#aaa]">Recent locations</p>
+
+            <ng-container *ngFor="let item of (weatherData$ | async); let i = index">
+                <div class="relative border-b-[1px] border-[#dedede]">
+                    <p class="text-lg cursor-pointer" (click)="getCityData(item)">{{item.name}} - {{(item.main.temp -
+                        273.15).toFixed(2)}}C
+                        {{item.weather[0].main}} <img class="inline h-[40px]" [src]="getWeatherIcon(item)"
+                            alt="My Icon">
+                    </p>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="absolute right-9 top-[8px] size-6 cursor-pointer"
+                        (click)="refreshWeatherData(item)">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="absolute right-0 top-[8px] size-6 cursor-pointer"
+                        (click)="deleteLocation(item, i)">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </div>
+            </ng-container>
+
+        </div>
+
+        <div class="mt-3 absolute bottom-3 right-3">
+            <button type="button" class="bg-[#dedede] px-6" (click)="clearWeatherData()">Clear</button>
+        </div>
+
+    </div>
+    <!-- Left Section End -->
+    <!-- Right Section Start -->
+    <div class="relative col-span-3 border border-[2px] border-[#000] p-3 bg-[#fff]" *ngIf="!this.emptyObj(cityData)">
+        <h1 class="font-bold">{{cityData.name}}</h1>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="absolute right-3 top-3 size-6 cursor-pointer" (click)="refreshWeatherData(cityData)">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+        </svg>
+        <div class="grid grid-cols-6">
+            <img class="m-auto w-full" [src]="getWeatherIcon(cityData)" alt="My Icon">
+            <div class="col-span-5 my-auto">
+                <p>{{(cityData.main.temp - 273.15).toFixed(2)}}C</p>
+                <p>{{cityData.weather[0].main}}</p>
+                <p>Wind: {{cityData.wind.speed}}ms {{cityData.wind.deg}} deg</p>
+                <p>Pressure {{cityData.main.pressure}}</p>
+            </div>
+        </div>
+
+        <p class="grid">5 Days forecast at 6 AM</p>
+        <div class="grid grid-cols-5 mt-6">
+            @for (item of forecastData; track $index) {
+            <div class="m-auto">
+                <p class="text-center">{{item.dt_txt | date: 'd'}}</p>
+                <p class="text-center">{{dateFormat(item.dt_txt)}}</p>
+                <img [src]="getWeatherIcon(item)" alt="My Icon">
+                <p class="text-center">{{(item.main.temp - 273.15).toFixed(2)}}c</p>
+            </div>
+            }
+        </div>
+    </div>
+    <!-- Left Section End -->
+</div>

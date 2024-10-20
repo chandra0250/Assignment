@@ -1,0 +1,18 @@
+<div class="grid grid-cols-2 h-14 bg-primary place-content-center p-3">
+    <div
+        class="text-sm font-medium text-center text-gray-500">
+        <ul class="flex flex-wrap justify-between">
+            <li class="me-2 text-base" [ngClass]="{'font-bold text-lg': isActive('/counter-app')}">
+                <a [routerLink]="['/counter-app']" routerLinkActive="router-link-active" 
+                    class="inline-block p-4 hover:text-gray-600 relative">Counter App </a>  
+                    <span class="inline-flex items-center justify-center w-6 h-6 text-xs font-medium text-white bg-[#dedede] rounded-full">
+                        {{count}}
+                    </span>
+            </li>
+            <li class="me-2 text-base" [ngClass]="{'font-bold text-lg': isActive('/weather-app')}">
+                <a [routerLink]="['/weather-app']" routerLinkActive="router-link-active"
+                    class="inline-block p-4" aria-current="page">Weather App</a>
+            </li>
+        </ul>
+    </div>
+</div>

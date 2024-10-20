@@ -1,0 +1,66 @@
+<div class="grid">
+
+  <!-- Header Start -->
+  <div class="flex justify-between items-center border-b-[1px] border-[#dfdfdf] p-3 bg-[#fff]">
+    <div class="flex space-x-4 w-full max-w-3xl">
+      <div>
+        <select class="h-10 p-2 font-bold text-lg">
+          <option [value]="'Sort by date'" selected>Team</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="flex items-center space-x-4 ml-auto">
+      <button class="bg-[blue] text-[#fff] rounded-full px-5 py-2" type="button">New User +</button>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="p-[10px] border border-[#dfdfdf] rounded-full size-3 h-[40px] w-[40px]">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="p-[10px] border border-[#dfdfdf] rounded-full size-3 h-[40px] w-[40px]">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+      </svg>
+      <img class="w-[40px] h-[40px] rounded-full" src="assets/images/avatars/user9.jpg" alt="user">
+    </div>
+  </div>
+  <!-- Header End -->
+  <!-- Sub Header Start -->
+  <div class="flex justify-between items-center border-b-[1px] border-[#dfdfdf] p-3 bg-[#fff]">
+    <div class="flex space-x-4 w-full max-w-3xl">
+      <div class="relative">
+        <p class="border border-[#dfdfdf] rounded-full w-full h-10 p text-[#000] pt-1 pr-8 pb-0 pl-4">Filter Users</p>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+          class="absolute top-3 right-3 size-4 text-[#5D5D5D]">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
+        </svg>
+      </div>
+
+      <div class="relative">
+        <input class="border border-[#dfdfdf] rounded-full w-full h-10 pl-3 pr-8" type="text"
+          placeholder="Try 'Miami beachhouse'" />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+          class="absolute top-3 right-3 text-[#5D5D5D] size-4">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+        </svg>
+      </div>
+    </div>
+
+    <div class="flex items-center space-x-4">
+      <div>
+        <select class="border border-[#dfdfdf] rounded-full h-10 p-2">
+          <option [value]="'Sort by date'" selected>Sort by date</option>
+        </select>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="p-[6px] border border-[#dfdfdf] rounded-full size-3 h-[40px] w-[40px]">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" />
+      </svg>
+    </div>
+  </div>
+   <!-- Sub Header End -->
+</div>
